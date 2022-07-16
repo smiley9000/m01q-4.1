@@ -1,28 +1,31 @@
-# Android fstab file.
-# The filesystem that contains the filesystem checker binary (typically /system) cannot
-# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+# mount point	fstype		device			device2				flags
+# Logical partitions
+system		/system		ext4							wait,logical,first_stage_mount
+vendor		/vendor		ext4							wait,logical,first_stage_mount
+product		/product	ext4							wait,logical,first_stage_mount
+odm		/odm		ext4							wait,logical,first_stage_mount
 
-# mount point  fstype  device                             device2                flags
+# Symlinked partitions
+/system_image	emmc		/dev/block/bootdevice/by-name/system			flags=backup=0;flashimg;display="System Image"
+/vendor_image	emmc		/dev/block/bootdevice/by-name/vendor			flags=backup=0;flashimg;display="Vendor Image"
+/product_image	emmc		/dev/block/bootdevice/by-name/product			flags=backup=0;flashimg;display="Product Image"
+/odm_image	emmc		/dev/block/bootdevice/by-name/odm			flags=backup=0;flashimg;display="Odm Image"
 
-/metadata      ext4    /dev/block/bootdevice/by-name/metadata                    flags=display="Metadata";backup=1;wrappedkey
-/data          f2fs    /dev/block/bootdevice/by-name/userdata                    flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_v0,metadata_encryption=aes-256-xts:wrappedkey_v0,keydirectory=/metadata/vold/metadata_encryption
-/boot          emmc    /dev/block/bootdevice/by-name/boot
-/dtbo          emmc    /dev/block/bootdevice/by-name/dtbo                        flags=backup=1;display="Dtbo";flashimg=1
-/cache         ext4    /dev/block/bootdevice/by-name/cache
-/recovery      emmc    /dev/block/bootdevice/by-name/recovery                    flags=backup=1
-/firmware      vfat    /dev/block/bootdevice/by-name/modem                       flags=display="Firmware"
-/cust          ext4    /dev/block/bootdevice/by-name/cust                        flags=display="Cust"
-/misc          emmc    /dev/block/bootdevice/by-name/misc
-/modem         emmc    /dev/block/bootdevice/by-name/modem                       flags=backup=1;display="Modem"
-/bluetooth     emmc    /dev/block/bootdevice/by-name/bluetooth                   flags=backup=1;subpartitionof=/modem
-/dsp           emmc    /dev/block/bootdevice/by-name/dsp                         flags=backup=1;subpartitionof=/modem
-/efs1          emmc    /dev/block/bootdevice/by-name/modemst1                    flags=backup=1;display=EFS
-/efs2          emmc    /dev/block/bootdevice/by-name/modemst2                    flags=backup=1;subpartitionof=/efs1
-/efsc          emmc    /dev/block/bootdevice/by-name/fsc                         flags=backup=1;subpartitionof=/efs1
-/efsg          emmc    /dev/block/bootdevice/by-name/fsg                         flags=backup=1;subpartitionof=/efs1
-/persist       ext4    /dev/block/bootdevice/by-name/persist                     flags=display="Persist"
-/persist_image emmc    /dev/block/bootdevice/by-name/persist                     flags=display="Persist";flashimg=1
+# Physical partitions
+/metadata	ext4		/dev/block/bootdevice/by-name/metadata			flags=backup=1;display="Metadata"
+/boot		emmc		/dev/block/bootdevice/by-name/boot			flags=backup=1;flashimg;display="Boot"
+/recovery	emmc		/dev/block/bootdevice/by-name/recovery			flags=backup=1;flashimg;display="Recovery"
+/data		f2fs		/dev/block/bootdevice/by-name/userdata
+/cache		ext4		/dev/block/bootdevice/by-name/cache			flags=backup=1;display="Cache"
+/efs		ext4		/dev/block/bootdevice/by-name/sec_efs			flags=backup=1;display="EFS"
+/firmware	emmc		/dev/block/bootdevice/by-name/apnhlos			flags=backup=1;display="Firmware"
+/modem		emmc		/dev/block/bootdevice/by-name/modem			flags=backup=1;display="Modem"
+/dsp		emmc		/dev/block/bootdevice/by-name/dsp
+/misc		emmc		/dev/block/bootdevice/by-name/misc
+/dtbo		emmc		/dev/block/bootdevice/by-name/dtbo			flags=backup=1;flashimg;display="Dtbo"
+/optics_image	emmc		/dev/block/bootdevice/by-name/optics			flags=backup=1;flashimg;display="Optics Image"
+/prism_image	emmc		/dev/block/bootdevice/by-name/prism			flags=backup=1;flashimg;display="Prism Image"
 
 # Removable storage
-/usb_otg       vfat    /dev/block/sdg1                    /dev/block/sdg         flags=fsflags=utf8;display="USB-OTG";storage;wipeingui;removable
-/external_sd   vfat     /dev/block/mmcblk0p1  /dev/block/mmcblk0   flags=display="MicroSD";storage;wipeingui;removable
+/external_sd	vfat		/dev/block/mmcblk1p1	/dev/block/mmcblk1		flags=storage;wipeingui;removable
+/usb-otg	auto		/dev/block/sda1	/dev/block/sda				flags=display="USB-OTG";storage;wipeingui;removable
