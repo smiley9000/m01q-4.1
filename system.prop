@@ -1,0 +1,7 @@
+ro.display.series=Samsung Galaxy M01
+ro.product.board=msm8937
+ro.board.platform=msm8937
+sys.usb.controller=7000000.dwc3
+ro.boot.dynamic_partitions=true
+#fbe.metadata.wrappedkey=true
+ro.boot.bootdevice=7824900.sdhci
