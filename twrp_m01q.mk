@@ -30,7 +30,7 @@ $(call inherit-product, device/samsung/m01q/device.mk)
 PRODUCT_PACKAGES += \
     charger_res_images
 
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/samsung/a11q/recovery/root,recovery/root)
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/samsung/m01q/recovery/root,recovery/root)
 
 
 ## Device identifier. This must come after all inclusions
