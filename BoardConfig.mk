@@ -118,7 +118,7 @@ SHRP_PATH := device/samsung/$(SHRP_DEVICE_CODE)
 
 # Maintainer name
 # Default (if not set): smily
-SHRP_DEVICE_TYPE := <A/B
+SHRP_DEVICE_TYPE := A/B
 SHRP_REC := /dev/block/bootdevice/by-name/recovery
 
 ################### ################################################################################
