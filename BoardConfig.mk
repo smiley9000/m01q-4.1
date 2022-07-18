@@ -108,3 +108,38 @@ BOARD_USES_METADATA_PARTITION := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
+################### ############################################
+# MANDATORY FLAGS # These flags HAVE TO be set/changed by you! #
+################### ############################################
+
+
+SHRP_DEVICE_CODE := m01q
+SHRP_PATH := device/samsung/$(SHRP_DEVICE_CODE)
+
+# Maintainer name
+# Default (if not set): smily
+SHRP_DEVICE_TYPE := <A/B
+SHRP_REC := /dev/block/bootdevice/by-name/recovery
+
+################### ################################################################################
+# SHRP
+################### ################################################################################
+
+
+# internal storage path
+# Default (if not set): /sdcard
+SHRP_INTERNAL := /sdcard
+
+# If your device has an external sdcard
+# Default (if not set): /
+SHRP_EXTERNAL := /external_sd
+
+# USB OTG path
+# Default (if not set): /
+SHRP_OTG := /usb_otg
+
+# Flashlight: (0 = disable, 1 = enable)
+# Default (if not set): 0
+SHRP_FLASH := 1
+
+
