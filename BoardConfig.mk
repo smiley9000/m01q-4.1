@@ -108,6 +108,10 @@ BOARD_USES_METADATA_PARTITION := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
+TW_DEVICE_VERSION := smily
+TW_Y_OFFSET := 70
+TW_H_OFFSET := -70
+
 ################### ############################################
 # MANDATORY FLAGS # These flags HAVE TO be set/changed by you! #
 ################### ############################################
