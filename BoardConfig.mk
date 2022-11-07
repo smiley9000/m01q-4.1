@@ -49,8 +49,8 @@ TARGET_USES_UEFI := true
 
 # Kernel
 TARGET_PREBUILT_KERNEL := device/samsung/m01q/prebuilt/Image.gz
-TARGET_PREBUILT_DTB := device/samsung/m01q/prebuilt/dtb
-BOARD_PREBUILT_DTBOIMAGE := device/samsung/m01q/prebuilt/recoverydtbo
+TARGET_PREBUILT_DTB := device/samsung/m01q/prebuilt/a11-dtb
+BOARD_PREBUILT_DTBOIMAGE := device/samsung/m01q/prebuilt/a11_dtbo
 #BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_KERNEL_ARCH := arm64
