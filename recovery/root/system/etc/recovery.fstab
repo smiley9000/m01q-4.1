@@ -48,6 +48,9 @@ odm					/odm		ext4	ro,barrier=1			wait,logical,first_stage_mount
 /dev/block/bootdevice/by-name/sec_efs	/sec_efs	ext4	defaults			recoveryonly
 #/dev/block/bootdevice/by-name/carrier	/carrier	ext4	defaults			recoveryonly
 /dev/block/bootdevice/by-name/hidden	/preload	ext4	defaults			recoveryonly
+/keyrefuge    ext4     /dev/block/platform/bootdevice/by-name/keyrefuge    flags=wipeingui;display=keyrefuge
+/keydata      ext4     /dev/block/platform/bootdevice/by-name/keydata      flags=wipeingui;display=keydata
+
 
 # FOTA
 /dev/block/bootdevice/by-name/apnhlos	/modem		emmc	defaults			recoveryonly
